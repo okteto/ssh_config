@@ -333,7 +333,7 @@ func (config *Config) WriteToFilepath(file_path string, opt *SaveOptions) error 
 		}
 
 		// default for ssh_config
-		mode = 600
+		mode = 0600
 	} else {
 		mode = stat.Mode()
 	}

@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 	"strings"
 	"testing"
-	"path/filepath"
 )
 
 var (
@@ -65,7 +65,7 @@ func TestWriteToNewFile(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	d, err := ioutil.TempDir("","")
+	d, err := ioutil.TempDir("", "")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -77,6 +77,15 @@ func TestWriteToNewFile(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	f, err := os.Open(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	_, err = Parse(f)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 }
 
