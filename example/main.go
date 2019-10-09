@@ -36,7 +36,7 @@ func main() {
 
 	// atomic write to file to ensure config is preserved in
 	// the event of an error
-	if err := config.WriteToFilepath(ssh_config_file); err != nil {
+	if err := config.WriteToFilepath(ssh_config_file, nil); err != nil {
 		log.Fatal(err)
 	}
 
